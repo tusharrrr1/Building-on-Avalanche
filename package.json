@@ -1,0 +1,31 @@
+{
+  "name": "building-on-avalanche",
+  "version": "1.0.0",
+  "description": "Token Minting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tusharrrr1/Building-on-Avalanche.git"
+  },
+  "keywords": [
+    "js",
+    "solidity",
+    "ts"
+  ],
+  "author": "Tushar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tusharrrr1/Building-on-Avalanche/issues"
+  },
+  "homepage": "https://github.com/tusharrrr1/Building-on-Avalanche#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2"
+  }
+}
