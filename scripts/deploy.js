@@ -2,7 +2,7 @@ const hre = require("hardhat");
 
 async function main() {
   // Get the Points smart contract
-  const Points = await hre.ethers.getContractFactory("DegenToken",["0x1663104334D4D7BeFEcd52Bdd7bb732F24D3AFe5"]);
+  const Points = await hre.ethers.getContractFactory("DegenToken",["0x7cA7786274196888f65B2710a6Be7b2C0Bf24693"]);
 
   // Specify the initial owner address
   const [deployer] = await hre.ethers.getSigners();
