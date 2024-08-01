@@ -2,7 +2,7 @@ require("@nomicfoundation/hardhat-toolbox");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.24",
+  solidity: "0.8.19",
   networks: {
     fuji: {
       url: "https://ava-testnet.public.blastapi.io/ext/bc/C/rpc",
