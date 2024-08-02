@@ -1,16 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.19;
+pragma solidity 0.8.24;
 
-interface IERC20 {
-    function totalSupply() external view returns (uint);
-    function balanceOf(address account) external view returns (uint);
-    function transfer(address recipient, uint amount) external returns (bool);
-    
-    event Transfer(address indexed from, address indexed to, uint amount);
-}
 
-contract ERC20 is IERC20 {
-    address public immutable owner;
+contract DegenToken {
+    string public constant name = "Degen";
+    string public constant symbol = "DGN";
+    uint8 public constant decimals = 6;
+    address public owner;
     uint public totalSupply;
     mapping (address => uint) public balanceOf;
 
@@ -19,23 +15,20 @@ contract ERC20 is IERC20 {
         string itemName;
         uint itemPrice;
     }
+
+    event Transfer(address indexed from, address indexed to, uint amount);
     
     mapping(uint => Item) public items;
     uint public itemCount;
 
     constructor() {
         owner = msg.sender;
-        totalSupply = 0;
     }
 
     modifier onlyOwner {
         require(msg.sender == owner, "Only the contract owner can execute this function");
         _;
     }
-
-    string public constant name = "Degen";
-    string public constant symbol = "DGN";
-    uint8 public constant decimals = 0;
 
     function transfer(address recipient, uint amount) external returns (bool) {
         require(balanceOf[msg.sender] >= amount, "The balance is insufficient");
