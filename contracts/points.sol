@@ -21,6 +21,7 @@ contract DegenToken {
     mapping(uint => Item) public items;
     uint public itemCount;
     mapping(address => mapping(uint => bool)) public redeemedItems;
+    mapping(address => Item[]) public playerItems; // New mapping to store redeemed items for each player
 
     constructor() {
         owner = msg.sender;
@@ -83,11 +84,19 @@ contract DegenToken {
         balanceOf[owner] += redeemedItem.itemPrice;
         redeemedItems[msg.sender][itemId] = true;
 
+        // Add the redeemed item to the player's items
+        playerItems[msg.sender].push(redeemedItem);
+
         emit Transfer(msg.sender, owner, redeemedItem.itemPrice);
         emit ItemRedeemed(msg.sender, itemId, redeemedItem.itemName);
     }
 
     function hasRedeemed(address player, uint itemId) external view returns (bool) {
         return redeemedItems[player][itemId];
+    }
+
+    // New function to get the list of items redeemed by a player
+    function getPlayerItems(address player) external view returns (Item[] memory) {
+        return playerItems[player];
     }
 }
